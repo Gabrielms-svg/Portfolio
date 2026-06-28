@@ -633,7 +633,7 @@
   <ul class="nav-links">
     <li><a href="#">Home</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="projects.html">Projects</a></li>
+    <li><a href="{% url 'projects' %}">Projects</a></li>
     <li><a href="#">Resume</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
@@ -665,7 +665,7 @@
     </p>
 
     <div class="hero-cta">
-      <a href="projects.html" class="btn btn-primary">
+      <a href="{% url 'projects' %}" class="btn btn-primary">
         View Projects <span class="btn-arrow">→</span>
       </a>
       <a href="contact.html" class="btn btn-ghost">
@@ -807,7 +807,7 @@
       <p class="section-eyebrow">Featured Work</p>
       <h2 class="section-heading" style="margin-bottom:0">Things I've built</h2>
     </div>
-    <a href="projects.html" class="btn btn-ghost reveal" style="align-self:flex-end">
+    <a href="{% url 'projects' %}" class="btn btn-ghost reveal" style="align-self:flex-end">
       All Projects <span class="btn-arrow">→</span>
     </a>
   </div>
@@ -837,7 +837,7 @@
          target="_blank" rel="noopener" class="btn btn-ghost" style="padding:0.6rem 1.2rem; font-size:0.8rem;">
         GitHub ↗
       </a>
-      <a href="projects.html#waste-detect" class="btn btn-primary" style="padding:0.6rem 1.2rem; font-size:0.8rem;">
+      <a href="{% url 'project_waste_detect' %}" class="btn btn-primary" style="padding:0.6rem 1.2rem; font-size:0.8rem;">
         Learn More →
       </a>
     </div>
@@ -866,7 +866,7 @@
          target="_blank" rel="noopener" class="btn btn-ghost" style="padding:0.6rem 1.2rem; font-size:0.8rem;">
         GitHub ↗
       </a>
-      <a href="projects.html#cams" class="btn btn-primary" style="padding:0.6rem 1.2rem; font-size:0.8rem;">
+      <a href="{% url 'project_cams' %}" class="btn btn-primary" style="padding:0.6rem 1.2rem; font-size:0.8rem;">
         Learn More →
       </a>
     </div>
@@ -895,7 +895,7 @@
          target="_blank" rel="noopener" class="btn btn-ghost" style="padding:0.6rem 1.2rem; font-size:0.8rem;">
         GitHub ↗
       </a>
-      <a href="projects.html#sysmon" class="btn btn-primary" style="padding:0.6rem 1.2rem; font-size:0.8rem;">
+      <a href="{% url 'project_sysmon' %}" class="btn btn-primary" style="padding:0.6rem 1.2rem; font-size:0.8rem;">
         Learn More →
       </a>
     </div>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Gabriel M S</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0A0F1E;
+      --navy-card: #111827;
+      --teal: #00D4AA;
+      --teal-dim: rgba(0, 212, 170, 0.12);
+      --slate: #8892A4;
+      --body: #C8D0DC;
+      --white: #E8EDF5;
+      --amber: #F5A623;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy);
+      color: var(--body);
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page-shell {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 3rem;
+    }
+
+    .nav-logo {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--teal);
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.4rem;
+      list-style: none;
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--slate);
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .hero {
+      padding: 2rem 0 3rem;
+    }
+
+    .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--teal);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      max-width: 760px;
+      font-size: 1rem;
+      color: var(--body);
+    }
+
+    .project-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 1.6rem;
+      margin-top: 1.4rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.16);
+    }
+
+    .project-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .project-badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--amber);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .project-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+
+    .project-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--slate);
+    }
+
+    .project-desc {
+      margin-bottom: 1rem;
+      color: var(--body);
+    }
+
+    .project-highlights {
+      display: grid;
+      gap: 0.5rem;
+      margin: 1rem 0 1.2rem;
+      padding-left: 1.2rem;
+      color: var(--body);
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .chip {
+      padding: 0.38rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(0,212,170,0.18);
+      background: var(--teal-dim);
+      color: var(--teal);
+      font-size: 0.75rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.75rem 1.1rem;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: var(--teal);
+      color: #06101b;
+    }
+
+    .btn-ghost {
+      border: 1px solid rgba(255,255,255,0.16);
+      color: var(--white);
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.9rem;
+      color: var(--slate);
+    }
+
+    @media (max-width: 700px) {
+      .nav-links { gap: 0.8rem; font-size: 0.75rem; }
+      .project-card { padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <nav>
+      <a href="{% url 'home' %}" class="nav-logo">gabriel<span>.</span>ms<span>_</span></a>
+      <ul class="nav-links">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'projects' %}">Projects</a></li>
+        <li><a href="#">Resume</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero">
+      <p class="eyebrow">Selected Work</p>
+      <h1>Projects that combine practical impact with thoughtful engineering.</h1>
+      <p>
+        These projects reflect my experience building AI-driven platforms, full-stack web applications,
+        and low-level system tooling. Each one was designed to solve a real problem with clear user value.
+      </p>
+    </section>
+
+    <section>
+      <article class="project-card">
+        <div class="project-head">
+          <div>
+            <p class="project-badge">AI · Computer Vision · Django</p>
+            <h2 class="project-title">Illegal Garbage Dumping Detection &amp; Waste Management System</h2>
+            <p class="project-date">Sep 2025 – Feb 2026</p>
+          </div>
+        </div>
+        <p class="project-desc">
+          Dump Surveillance AI is an AI-powered platform created to detect, analyze, and manage illegal garbage dumping incidents through intelligent surveillance. The system combines CCTV-based detection with computer vision, OCR, geospatial analysis, and citizen reporting to create a practical response workflow for waste enforcement and public awareness.
+        </p>
+        <ul class="project-highlights">
+          <li>Uses YOLO-based object detection to identify dumping activities in surveillance footage.</li>
+          <li>Extracts vehicle number plates with OCR and supports incident evidence tracking.</li>
+          <li>Maps hotspots with Leaflet and turns raw incidents into actionable monitoring insights.</li>
+          <li>Includes a reporting flow for citizens and a chatbot that educates users about proper waste disposal.</li>
+        </ul>
+        <div class="chip-row">
+          <span class="chip">Django</span>
+          <span class="chip">Python</span>
+          <span class="chip">YOLO</span>
+          <span class="chip">OpenCV</span>
+          <span class="chip">EasyOCR</span>
+          <span class="chip">Leaflet</span>
+          <span class="chip">MySQL</span>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="{% url 'project_waste_detect' %}">Learn More →</a>
+          <a class="btn btn-ghost" href="https://github.com/Gabrielms-svg/Illegal-Garbage-dumping-detection-and-waste-management-system" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-head">
+          <div>
+            <p class="project-badge">Django · Full-Stack · Campus Tech</p>
+            <h2 class="project-title">Campus Activity Management System (CAMS)</h2>
+            <p class="project-date">Jan 2025 – Mar 2025</p>
+          </div>
+        </div>
+        <p class="project-desc">
+          CAMS is a role-based campus management platform that simplifies how events and student activities are created, tracked, and verified. It brings admins, faculty, and students into a single system for organizing participation, monitoring records, and issuing certificates with confidence.
+        </p>
+        <ul class="project-highlights">
+          <li>Supports distinct roles for admins, faculty, and students with tailored permissions.</li>
+          <li>Lets faculty manage activities, participation, and verification workflow.</li>
+          <li>Gives students a clear experience for applying, canceling, and tracking their participation.</li>
+          <li>Provides activity points and semester-wise reporting to support academic engagement.</li>
+        </ul>
+        <div class="chip-row">
+          <span class="chip">Django</span>
+          <span class="chip">Python</span>
+          <span class="chip">MySQL</span>
+          <span class="chip">Bootstrap</span>
+          <span class="chip">JavaScript</span>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="{% url 'project_cams' %}">Learn More →</a>
+          <a class="btn btn-ghost" href="https://github.com/Gabrielms-svg/CAMS-Campus-Activity-Management-System" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-head">
+          <div>
+            <p class="project-badge">C · Win32 API · Systems Programming</p>
+            <h2 class="project-title">Windows System Monitor</h2>
+            <p class="project-date">Aug 2025 – Aug 2025</p>
+          </div>
+        </div>
+        <p class="project-desc">
+          Windows System Monitor is a lightweight system diagnostics tool built in pure C for Windows environments. It focuses on core operating system insights such as active processes, CPU and memory usage, and network ports, showing how low-level programming can translate into a practical monitoring experience.
+        </p>
+        <ul class="project-highlights">
+          <li>Built with the Win32 API to interact directly with the Windows operating system.</li>
+          <li>Tracks process activity and resource consumption in real time.</li>
+          <li>Shows strong fundamentals in memory, process, and system monitoring concepts.</li>
+          <li>Acts as a compact demonstration of systems programming and OS-level awareness.</li>
+        </ul>
+        <div class="chip-row">
+          <span class="chip">C</span>
+          <span class="chip">Win32 API</span>
+          <span class="chip">Windows OS</span>
+          <span class="chip">Systems Programming</span>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="{% url 'project_sysmon' %}">Learn More →</a>
+          <a class="btn btn-ghost" href="https://github.com/Gabrielms-svg/windows-system-monitor" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      <p>© 2026 Gabriel M S · Built with Django</p>
+    </footer>
+  </div>
+</body>
+</html>

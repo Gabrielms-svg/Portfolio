@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dump Surveillance AI | Gabriel M S</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root { --navy:#0A0F1E; --navy-card:#111827; --teal:#00D4AA; --slate:#8892A4; --body:#C8D0DC; --white:#E8EDF5; --amber:#F5A623; }
+    *{box-sizing:border-box;margin:0;padding:0} body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--body);line-height:1.7} a{text-decoration:none;color:inherit} .page{max-width:1100px;margin:0 auto;padding:2rem 1.25rem 3.5rem} nav{display:flex;justify-content:space-between;align-items:center;padding-bottom:1.25rem;margin-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.08)} .nav-logo{font-family:'JetBrains Mono',monospace;color:var(--teal);font-size:0.95rem} .hero{padding:1rem 0 1.5rem} .eyebrow{font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--teal);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:0.8rem} h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,4vw,2.8rem);color:var(--white);margin-bottom:0.8rem} .lead{font-size:1rem;max-width:760px} .card{background:linear-gradient(135deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:1.3rem 1.4rem;margin-top:1rem} h2{font-family:'Space Grotesk',sans-serif;color:var(--white);font-size:1.2rem;margin-bottom:0.45rem} ul{padding-left:1.2rem;margin-top:0.45rem} .chip-row{display:flex;flex-wrap:wrap;gap:0.55rem;margin-top:0.8rem}.chip{padding:0.35rem 0.7rem;border-radius:999px;border:1px solid rgba(0,212,170,0.16);background:rgba(0,212,170,0.1);color:var(--teal);font-size:0.74rem;font-family:'JetBrains Mono',monospace}.btn{display:inline-flex;align-items:center;gap:0.4rem;padding:0.7rem 1rem;border-radius:8px;border:1px solid rgba(255,255,255,0.12);margin-top:1rem;color:var(--white)} .btn.primary{background:var(--teal);color:#06101b;border:none}.back{margin-top:1.4rem;color:var(--slate)} .diagram-block{margin-top:1rem;overflow-x:auto;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:1rem}.diagram-block h3{font-family:'Space Grotesk',sans-serif;color:var(--white);font-size:1rem;margin-bottom:0.7rem}.diagram-block p{margin-bottom:0.7rem;color:var(--body)} .diagram-svg{width:100%;height:auto;display:block;border-radius:10px;background:rgba(10,15,30,0.85);padding:0.7rem}.diagram-caption{font-size:0.82rem;color:var(--slate);margin-top:0.5rem} @media (max-width:700px){.page{padding:1rem 1rem 2rem}}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav>
+      <a href="{% url 'home' %}" class="nav-logo">gabriel<span>.</span>ms<span>_</span></a>
+      <a href="{% url 'projects' %}" class="back">← Back to Projects</a>
+    </nav>
+
+    <section class="hero">
+      <p class="eyebrow">Project Deep Dive</p>
+      <h1>Dump Surveillance AI</h1>
+      <p class="lead">An AI-powered waste-management platform that detects illegal dumping through surveillance, strengthens reporting workflows, and turns evidence into actionable insight for authorities.</p>
+    </section>
+
+    <div class="card">
+      <h2>What it does</h2>
+      <p>The system monitors CCTV data, identifies suspicious dumping activity with YOLO-based object detection, and extracts vehicle number plates using OCR for evidence collection. It also allows citizens to submit reports with images, location, and timestamps, creating a broader picture of illegal disposal in an area.</p>
+    </div>
+
+    <div class="card">
+      <h2>Core features</h2>
+      <ul>
+        <li>Real-time detection of dumping behavior from video input.</li>
+        <li>Automated OCR-based plate recognition and incident evidence linking.</li>
+        <li>Interactive hotspot mapping using Leaflet to visualize problem areas.</li>
+        <li>Citizen reporting flow for media uploads and incident descriptions.</li>
+        <li>AI chatbot guidance for responsible waste disposal practices.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>System Design</h2>
+      <p>The architecture combines user interaction, surveillance analysis, evidence storage, and authority-side monitoring into a complete waste-management workflow.</p>
+
+      <div class="diagram-block">
+        <h3>1. Data Flow Diagram (DFD)</h3>
+        <svg class="diagram-svg" viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="20" width="680" height="320" rx="18" fill="#0A0F1E" stroke="#00D4AA" stroke-width="1.2"/>
+          <rect x="70" y="70" width="140" height="60" rx="12" fill="#111827" stroke="#8892A4"/>
+          <text x="140" y="105" text-anchor="middle" fill="#E8EDF5" font-family="Inter, sans-serif" font-size="16">Normal User</text>
+          <rect x="280" y="70" width="160" height="60" rx="12" fill="#111827" stroke="#8892A4"/>
+          <text x="360" y="105" text-anchor="middle" fill="#E8EDF5" font-family="Inter, sans-serif" font-size="16">Garbage System</text>
+          <rect x="510" y="70" width="140" height="60" rx="12" fill="#111827" stroke="#8892A4"/>
+          <text x="580" y="105" text-anchor="middle" fill="#E8EDF5" font-family="Inter, sans-serif" font-size="16">Authority</text>
+          <rect x="280" y="220" width="160" height="60" rx="12" fill="#111827" stroke="#8892A4"/>
+          <text x="360" y="255" text-anchor="middle" fill="#E8EDF5" font-family="Inter, sans-serif" font-size="16">CCTV / Camera</text>
+          <line x1="210" y1="100" x2="280" y2="100" stroke="#00D4AA" stroke-width="2"/>
+          <line x1="440" y1="100" x2="510" y2="100" stroke="#00D4AA" stroke-width="2"/>
+          <line x1="360" y1="130" x2="360" y2="220" stroke="#00D4AA" stroke-width="2"/>
+          <text x="140" y="140" text-anchor="middle" fill="#C8D0DC" font-family="JetBrains Mono, monospace" font-size="12">report / login</text>
+          <text x="580" y="140" text-anchor="middle" fill="#C8D0DC" font-family="JetBrains Mono, monospace" font-size="12">monitor / alerts</text>
+          <text x="360" y="205" text-anchor="middle" fill="#C8D0DC" font-family="JetBrains Mono, monospace" font-size="12">video / detection</text>
+        </svg>
+        <p class="diagram-caption">Context-level flow showing users, authority, cameras, and the core system interaction.</p>
+      </div>
+
+      <div class="diagram-block">
+        <h3>2. UML Class Diagram</h3>
+        <svg class="diagram-svg" viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="20" width="680" height="380" rx="18" fill="#0A0F1E" stroke="#00D4AA" stroke-width="1.2"/>
+          <rect x="70" y="70" width="180" height="80" rx="12" fill="#111827" stroke="#8892A4"/>
+          <text x="160" y="100" text-anchor="middle" fill="#E8EDF5" font-family="Inter, sans-serif" font-size="16">Normal User</text>
+          <text x="160" y="122" text-anchor="middle" fill="#C8D0DC" font-family="JetBrains Mono, monospace" font-size="12">submitReport()</text>
+          <rect x="320" y="70" width="180" height="80" rx="12" fill="#111827" stroke="#8892A4"/>
+          <text x="410" y="100" text-anchor="middle" fill="#E8EDF5" font-family="Inter, sans-serif" font-size="16">Garbage Report</text>
+          <text x="410" y="122" text-anchor="middle" fill="#C8D0DC" font-family="JetBrains Mono, monospace" font-size="12">description / severity</text>
+          <rect x="520" y="220" width="140" height="80" rx="12" fill="#111827" stroke="#8892A4"/>
+          <text x="590" y="250" text-anchor="middle" fill="#E8EDF5" font-family="Inter, sans-serif" font-size="16">Authority</text>
+          <text x="590" y="272" text-anchor="middle" fill="#C8D0DC" font-family="JetBrains Mono, monospace" font-size="12">reviewReports()</text>
+          <rect x="70" y="220" width="180" height="80" rx="12" fill="#111827" stroke="#8892A4"/>
+          <text x="160" y="250" text-anchor="middle" fill="#E8EDF5" font-family="Inter, sans-serif" font-size="16">Camera / Event</text>
+          <text x="160" y="272" text-anchor="middle" fill="#C8D0DC" font-family="JetBrains Mono, monospace" font-size="12">detectDumping()</text>
+          <line x1="250" y1="110" x2="320" y2="110" stroke="#00D4AA" stroke-width="2"/>
+          <line x1="500" y1="110" x2="560" y2="220" stroke="#00D4AA" stroke-width="2"/>
+          <line x1="250" y1="260" x2="520" y2="260" stroke="#00D4AA" stroke-width="2"/>
+          <text x="280" y="100" fill="#C8D0DC" font-family="JetBrains Mono, monospace" font-size="12">submits</text>
+          <text x="490" y="180" fill="#C8D0DC" font-family="JetBrains Mono, monospace" font-size="12">reviews</text>
+          <text x="365" y="250" fill="#C8D0DC" font-family="JetBrains Mono, monospace" font-size="12">captures</text>
+        </svg>
+        <p class="diagram-caption">Core entity relationships for reports, users, authority users, and camera events.</p>
+      </div>
+
+      <div class="diagram-block">
+        <h3>3. UML Use Case Diagram</h3>
+        <svg class="diagram-svg" viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="20" width="680" height="320" rx="18" fill="#0A0F1E" stroke="#00D4AA" stroke-width="1.2"/>
+          <circle cx="120" cy="110" r="42" fill="#111827" stroke="#8892A4"/>
+          <text x="120" y="103" text-anchor="middle" fill="#E8EDF5" font-family="Inter, sans-serif" font-size="16">User</text>
+          <circle cx="360" cy="110" r="42" fill="#111827" stroke="#8892A4"/>
+          <text x="360" y="103" text-anchor="middle" fill="#E8EDF5" font-family="Inter, sans-serif" font-size="16">Authority</text>
+          <circle cx="600" cy="110" r="42" fill="#111827" stroke="#8892A4"/>
+          <text x="600" y="103" text-anchor="middle" fill="#E8EDF5" font-family="Inter, sans-serif" font-size="16">CCTV</text>
+          <rect x="220" y="220" width="280" height="90" rx="14" fill="#111827" stroke="#8892A4"/>
+          <text x="360" y="247" text-anchor="middle" fill="#E8EDF5" font-family="Inter, sans-serif" font-size="16">Garbage Management System</text>
+          <text x="360" y="272" text-anchor="middle" fill="#C8D0DC" font-family="JetBrains Mono, monospace" font-size="12">report, review, detect, analytics</text>
+          <line x1="162" y1="110" x2="318" y2="110" stroke="#00D4AA" stroke-width="2"/>
+          <line x1="402" y1="110" x2="558" y2="110" stroke="#00D4AA" stroke-width="2"/>
+          <line x1="240" y1="220" x2="180" y2="152" stroke="#00D4AA" stroke-width="2"/>
+          <line x1="360" y1="220" x2="360" y2="152" stroke="#00D4AA" stroke-width="2"/>
+          <line x1="480" y1="220" x2="560" y2="152" stroke="#00D4AA" stroke-width="2"/>
+        </svg>
+        <p class="diagram-caption">Main use cases for users, authority, and CCTV-based detection.</p>
+      </div>
+
+      <div class="diagram-block">
+        <h3>4. Report Lifecycle State Chart</h3>
+        <svg class="diagram-svg" viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="20" width="680" height="280" rx="18" fill="#0A0F1E" stroke="#00D4AA" stroke-width="1.2"/>
+          <rect x="90" y="110" width="110" height="50" rx="12" fill="#111827" stroke="#8892A4"/>
+          <text x="145" y="140" text-anchor="middle" fill="#E8EDF5" font-family="Inter, sans-serif" font-size="16">Draft</text>
+          <rect x="260" y="110" width="140" height="50" rx="12" fill="#111827" stroke="#8892A4"/>
+          <text x="330" y="140" text-anchor="middle" fill="#E8EDF5" font-family="Inter, sans-serif" font-size="16">Submitted</text>
+          <rect x="470" y="110" width="140" height="50" rx="12" fill="#111827" stroke="#8892A4"/>
+          <text x="540" y="140" text-anchor="middle" fill="#E8EDF5" font-family="Inter, sans-serif" font-size="16">Reviewed</text>
+          <line x1="200" y1="135" x2="260" y2="135" stroke="#00D4AA" stroke-width="2"/>
+          <line x1="400" y1="135" x2="470" y2="135" stroke="#00D4AA" stroke-width="2"/>
+          <circle cx="145" cy="75" r="8" fill="#00D4AA"/>
+          <line x1="145" y1="83" x2="145" y2="110" stroke="#00D4AA" stroke-width="2"/>
+          <circle cx="540" cy="220" r="8" fill="#00D4AA"/>
+          <line x1="540" y1="160" x2="540" y2="212" stroke="#00D4AA" stroke-width="2"/>
+          <text x="280" y="175" text-anchor="middle" fill="#C8D0DC" font-family="JetBrains Mono, monospace" font-size="12">user submits</text>
+          <text x="510" y="175" text-anchor="middle" fill="#C8D0DC" font-family="JetBrains Mono, monospace" font-size="12">authority reviews</text>
+        </svg>
+        <p class="diagram-caption">Lifecycle from draft report to submitted and reviewed evidence.</p>
+      </div>
+
+      <div class="diagram-block">
+        <h3>5. Dumping Event State Chart</h3>
+        <svg class="diagram-svg" viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="20" width="680" height="320" rx="18" fill="#0A0F1E" stroke="#00D4AA" stroke-width="1.2"/>
+          <rect x="90" y="120" width="120" height="50" rx="12" fill="#111827" stroke="#8892A4"/>
+          <text x="150" y="150" text-anchor="middle" fill="#E8EDF5" font-family="Inter, sans-serif" font-size="16">Monitoring</text>
+          <rect x="260" y="120" width="140" height="50" rx="12" fill="#111827" stroke="#8892A4"/>
+          <text x="330" y="150" text-anchor="middle" fill="#E8EDF5" font-family="Inter, sans-serif" font-size="16">Event Detected</text>
+          <rect x="450" y="120" width="120" height="50" rx="12" fill="#111827" stroke="#8892A4"/>
+          <text x="510" y="150" text-anchor="middle" fill="#E8EDF5" font-family="Inter, sans-serif" font-size="16">Recording</text>
+          <rect x="270" y="240" width="140" height="50" rx="12" fill="#111827" stroke="#8892A4"/>
+          <text x="340" y="270" text-anchor="middle" fill="#E8EDF5" font-family="Inter, sans-serif" font-size="16">Processing</text>
+          <line x1="210" y1="145" x2="260" y2="145" stroke="#00D4AA" stroke-width="2"/>
+          <line x1="400" y1="145" x2="450" y2="145" stroke="#00D4AA" stroke-width="2"/>
+          <line x1="510" y1="170" x2="410" y2="240" stroke="#00D4AA" stroke-width="2"/>
+          <circle cx="150" cy="80" r="8" fill="#00D4AA"/>
+          <line x1="150" y1="88" x2="150" y2="120" stroke="#00D4AA" stroke-width="2"/>
+          <circle cx="340" cy="320" r="8" fill="#00D4AA"/>
+          <line x1="340" y1="290" x2="340" y2="312" stroke="#00D4AA" stroke-width="2"/>
+          <text x="220" y="185" fill="#C8D0DC" font-family="JetBrains Mono, monospace" font-size="12">motion detected</text>
+          <text x="445" y="220" fill="#C8D0DC" font-family="JetBrains Mono, monospace" font-size="12">analyze frames</text>
+        </svg>
+        <p class="diagram-caption">Event flow from camera monitoring to recording and processing.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Tech stack</h2>
+      <div class="chip-row">
+        <span class="chip">Django</span>
+        <span class="chip">Python</span>
+        <span class="chip">YOLO</span>
+        <span class="chip">OpenCV</span>
+        <span class="chip">EasyOCR</span>
+        <span class="chip">Leaflet</span>
+        <span class="chip">MySQL</span>
+      </div>
+      <a class="btn primary" href="https://github.com/Gabrielms-svg/Illegal-Garbage-dumping-detection-and-waste-management-system" target="_blank" rel="noopener">View GitHub Repository ↗</a>
+    </div>
+  </div>
+</body>
+</html>
